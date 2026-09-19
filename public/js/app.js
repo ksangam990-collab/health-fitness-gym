@@ -573,4 +573,24 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // Hero Visual 3D Interactive Parallax Tilt (Desktop)
+  const heroVisualCard = document.querySelector('.hero-visual-card');
+  const heroImageWrapper = document.querySelector('.hero-image-wrapper');
+  if (heroVisualCard && heroImageWrapper && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    heroVisualCard.addEventListener('mousemove', (e) => {
+      const rect = heroVisualCard.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
+      heroImageWrapper.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg)`;
+    });
+
+    heroVisualCard.addEventListener('mouseleave', () => {
+      heroImageWrapper.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    });
+  }
 });
