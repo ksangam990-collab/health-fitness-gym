@@ -197,11 +197,15 @@
           </div>
 
           <div class="hero-reception-line">
-            <i data-lucide="phone-call"></i>
-            <span>Direct Reception:</span>
-            <a href="tel:08294096478">082940 96478</a>
+            <a href="tel:08294096478" class="reception-pill-item">
+              <i data-lucide="phone"></i>
+              <span>Reception: 082940 96478</span>
+            </a>
             <span class="dot-sep">•</span>
-            <span>Bagunhatu Road No. 5</span>
+            <a href="#location" class="reception-pill-item">
+              <i data-lucide="map-pin"></i>
+              <span>Bagunhatu Road No. 5</span>
+            </a>
           </div>
 
           <div class="hero-stats-row">
@@ -440,14 +444,17 @@
               </div>
             </div>
 
-            <div style="border-top: 1px solid var(--border-subtle); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 0.65rem;">
-              <div style="display: flex; justify-content: space-between; font-size: 0.88rem;">
-                <span style="color: var(--text-muted);">Recommended Volume:</span>
-                <span id="target-sets-reps" style="font-family: var(--font-mono); font-weight: 600; color: #fff;">4 Sets × 8–12 Reps</span>
+            <div class="muscle-meta-box">
+              <div class="muscle-meta-row">
+                <span class="meta-label"><i data-lucide="layers"></i> Recommended Volume:</span>
+                <span id="target-sets-reps" class="meta-val">4 Sets × 8–12 Reps</span>
               </div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.88rem;">
-                <span style="color: var(--text-muted);">Trainer Technique Key:</span>
-                <span id="target-focus-tip" style="color: var(--accent-primary); font-weight: 600; text-align: right; max-width: 320px;">Full stretch and mechanical tension</span>
+              <div class="technique-callout-card">
+                <div class="technique-header">
+                  <i data-lucide="zap"></i>
+                  <span>Trainer Technique Key</span>
+                </div>
+                <p id="target-focus-tip" class="technique-body">Full stretch at bottom & peak contraction squeeze</p>
               </div>
               <button class="btn btn-primary open-trial-modal" style="margin-top: 0.65rem; width: 100%;">
                 <i data-lucide="zap"></i>
@@ -552,7 +559,7 @@
               <input type="range" id="bmi-weight" class="slider-custom" min="40" max="150" value="72">
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 0.85rem;">
+            <div class="bmi-inputs-row">
               <div class="input-group">
                 <label for="bmi-age" class="input-label">Age (उम्र)</label>
                 <input type="number" id="bmi-age" class="form-input" value="24" min="14" max="80">
@@ -966,13 +973,39 @@
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Modern Luxury Footer -->
     <footer class="footer">
       <div class="container">
+
+        <!-- High-Converting Pre-Footer Banner -->
+        <div class="footer-cta-banner reveal">
+          <div class="cta-banner-content">
+            <span class="section-tag" style="margin-bottom: 0.55rem;">
+              <i data-lucide="dumbbell"></i> Jamshedpur's Heavy Iron Destination
+            </span>
+            <h3 class="cta-banner-title">Ready to Forge Your <span class="glow-text">Strongest Self?</span></h3>
+            <p class="cta-banner-desc">
+              Visit us at Bagunhatu Road No. 5 or claim your 1-Day Free Trial Pass today. Certified coach guidance on every shift.
+            </p>
+          </div>
+          <div class="cta-banner-actions">
+            <button class="btn btn-primary btn-lg open-trial-modal">
+              <i data-lucide="zap"></i>
+              <span>Claim Free 1-Day Pass</span>
+            </button>
+            <a href="https://wa.me/918294096478?text=Hello%20Health%20Fitness%20Gym%20Jamshedpur,%20I%20want%20to%20visit%20the%20gym" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+              <i data-lucide="message-circle"></i>
+              <span>WhatsApp Head Coach</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Modern Footer Main Grid -->
         <div class="footer-grid">
           
-          <div>
-            <div class="brand" style="margin-bottom: 1rem;">
+          <!-- Column 1: Brand Authority & Socials -->
+          <div class="footer-col-brand">
+            <a href="#hero" class="brand" style="margin-bottom: 0.85rem;">
               <div class="brand-icon">
                 <i data-lucide="dumbbell"></i>
               </div>
@@ -980,76 +1013,120 @@
                 <span class="brand-name">HEALTH FITNESS GYM</span>
                 <span class="brand-sub">हेल्थ फिटनेस जिम • जमशेदपुर</span>
               </div>
-            </div>
-            <p style="color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1.25rem;">
-              Rated 4.9⭐ with 27+ reviews. Jamshedpur’s dedicated fitness center focusing on disciplined heavy training, trainer mentorship, and life-changing physical transformations.
+            </a>
+            <p class="footer-brand-desc">
+              Rated 4.9⭐ with 27+ verified reviews. Bagunhatu’s premier training hub featuring heavy dumbbell stations up to 50kg, certified floor coaches, and motivating brotherhood.
             </p>
-            <div style="display: flex; gap: 0.6rem;">
-              <a href="https://www.instagram.com/healthfitnessgym2024?utm_source=qr&igsh=bndpMmJkM3F4aDRq" target="_blank" rel="noopener" class="btn-call" style="width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+            <div class="footer-rating-pill">
+              <i data-lucide="star" style="color: var(--accent-gold); fill: var(--accent-gold); width: 14px; height: 14px;"></i>
+              <span><strong>4.9 / 5.0</strong> on Google Maps (27+ Reviews)</span>
+            </div>
+            <div class="footer-social-links">
+              <a href="https://www.instagram.com/healthfitnessgym2024?utm_source=qr&igsh=bndpMmJkM3F4aDRq" target="_blank" rel="noopener" class="footer-social-btn" title="Follow on Instagram">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
               </a>
-              <a href="https://maps.app.goo.gl/qriynpdPX8hxFdvj6" target="_blank" rel="noopener" class="btn-call" style="width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+              <a href="https://maps.app.goo.gl/qriynpdPX8hxFdvj6" target="_blank" rel="noopener" class="footer-social-btn" title="View on Google Maps">
                 <i data-lucide="map-pin" style="width: 15px; height: 15px;"></i>
               </a>
-              <a href="https://wa.me/918294096478" target="_blank" rel="noopener" class="btn-call" style="width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+              <a href="https://wa.me/918294096478" target="_blank" rel="noopener" class="footer-social-btn" title="Chat on WhatsApp">
                 <i data-lucide="message-circle" style="width: 15px; height: 15px;"></i>
+              </a>
+              <a href="tel:08294096478" class="footer-social-btn" title="Call Reception">
+                <i data-lucide="phone" style="width: 15px; height: 15px;"></i>
               </a>
             </div>
           </div>
 
-          <div>
-            <h4 style="font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: #fff; margin-bottom: 1rem;">Quick Links</h4>
-            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.85rem; color: var(--text-muted);">
-              <li><a href="#about">Facility & Equipment</a></li>
-              <li><a href="#targeter">Targeted Programs</a></li>
-              <li><a href="#transformation">Physique Results</a></li>
-              <li><a href="#bmi-tool">Body Composition</a></li>
-              <li><a href="#schedule">Crowd Radar</a></li>
-              <li><a href="#pricing">Membership Plans</a></li>
+          <!-- Column 2: Navigation -->
+          <div class="footer-col">
+            <h4 class="footer-col-title">Navigation</h4>
+            <ul class="footer-link-list">
+              <li><a href="#about"><i data-lucide="chevron-right"></i>Facility & Equipment</a></li>
+              <li><a href="#targeter"><i data-lucide="chevron-right"></i>Targeted Muscle Explorer</a></li>
+              <li><a href="#transformation"><i data-lucide="chevron-right"></i>90-Day Transformations</a></li>
+              <li><a href="#bmi-tool"><i data-lucide="chevron-right"></i>BMI Body Composition</a></li>
+              <li><a href="#schedule"><i data-lucide="chevron-right"></i>Crowd Rush Radar</a></li>
+              <li><a href="#pricing"><i data-lucide="chevron-right"></i>Membership Pricing</a></li>
             </ul>
           </div>
 
-          <div>
-            <h4 style="font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: #fff; margin-bottom: 1rem;">Disciplines</h4>
-            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.85rem; color: var(--text-muted);">
-              <li>Strength & Hypertrophy</li>
-              <li>Fat Loss & Metabolic HIIT</li>
-              <li>1-on-1 Personal Training</li>
-              <li>Indian Nutrition Planning</li>
-              <li>Biomechanics & Posture</li>
+          <!-- Column 3: Disciplines -->
+          <div class="footer-col">
+            <h4 class="footer-col-title">Disciplines</h4>
+            <ul class="footer-link-list">
+              <li><span class="footer-link-static"><i data-lucide="check"></i>Heavy Iron & Hypertrophy</span></li>
+              <li><span class="footer-link-static"><i data-lucide="check"></i>Fat Loss & Conditioning</span></li>
+              <li><span class="footer-link-static"><i data-lucide="check"></i>1-on-1 Personal Training</span></li>
+              <li><span class="footer-link-static"><i data-lucide="check"></i>Custom Indian Diet Plans</span></li>
+              <li><span class="footer-link-static"><i data-lucide="check"></i>Biomechanics & Form</span></li>
             </ul>
           </div>
 
-          <div>
-            <h4 style="font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; color: #fff; margin-bottom: 1rem;">Visit Gym</h4>
-            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.55rem; line-height: 1.5;">
-              Bagunhatu, Road No. 5, near Nirmal Store, B Block, Namta Para, Jamshedpur 831017
-            </p>
-            <p style="color: #fff; font-size: 0.85rem; margin-bottom: 0.35rem;">
-              <strong>Phone:</strong> 082940 96478
-            </p>
-            <p style="color: var(--accent-primary); font-size: 0.85rem;">
-              <strong>Hours:</strong> Open Daily · Closes 10:00 PM
-            </p>
+          <!-- Column 4: Visit Gym & Hours -->
+          <div class="footer-col footer-col-visit">
+            <h4 class="footer-col-title">Visit Health Fitness</h4>
+            <div class="footer-contact-card">
+              <div class="footer-contact-item">
+                <i data-lucide="map-pin" class="contact-icon"></i>
+                <div>
+                  <strong>Bagunhatu Road No. 5</strong>
+                  <p>Near Nirmal Store, B Block, Namta Para, Jamshedpur 831017</p>
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <i data-lucide="phone-call" class="contact-icon"></i>
+                <div>
+                  <strong>Direct Reception:</strong>
+                  <a href="tel:08294096478" class="contact-link">082940 96478</a>
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <i data-lucide="clock" class="contact-icon"></i>
+                <div>
+                  <strong>Hours:</strong>
+                  <span class="hours-badge">Open Daily · Closes 10:00 PM</span>
+                </div>
+              </div>
+              <div class="footer-contact-item">
+                <i data-lucide="compass" class="contact-icon"></i>
+                <div>
+                  <strong>Google Plus Code:</strong>
+                  <a href="https://maps.app.goo.gl/qriynpdPX8hxFdvj6" target="_blank" rel="noopener" class="contact-link">R65W+G2 Jamshedpur</a>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
 
-        <div style="padding-top: 1.5rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: 0.8rem; color: var(--text-muted);">
-          <div>&copy; 2024-2026 Health Fitness Gym (हेल्थ फिटनेस जिम). All rights reserved.</div>
-          <div>Plus Code: R65W+G2 Jamshedpur, Jharkhand</div>
+        <!-- Footer Bottom Bar -->
+        <div class="footer-bottom-bar">
+          <div class="footer-copyright">
+            &copy; 2024–2026 Health Fitness Gym (हेल्थ फिटनेस जिम). All rights reserved.
+          </div>
+          <div class="footer-badges">
+            <span class="footer-badge">Bagunhatu Road No. 5</span>
+            <span class="footer-badge">Certified Coaching</span>
+            <span class="footer-badge">4.9★ Google Verified</span>
+          </div>
         </div>
       </div>
     </footer>
 
-    <!-- Floating Quick Actions (Clean, Non-Intrusive) -->
+    <!-- Floating / Mobile Bottom Action Dock -->
     <div class="floating-actions">
+      <a href="tel:08294096478" class="floating-btn floating-call" title="Call Gym Desk">
+        <i data-lucide="phone"></i>
+        <span class="mobile-action-label">Call Desk</span>
+      </a>
       <a href="https://wa.me/918294096478?text=Hello%20Health%20Fitness%20Gym,%20I%20want%20to%20inquire%20about%20membership" target="_blank" rel="noopener" class="floating-btn floating-whatsapp" title="WhatsApp Coach">
-        <i data-lucide="message-circle" style="width: 20px; height: 20px;"></i>
+        <i data-lucide="message-circle"></i>
+        <span class="mobile-action-label">WhatsApp</span>
       </a>
-      <a href="tel:08294096478" class="floating-btn floating-call" title="Call Now">
-        <i data-lucide="phone" style="width: 18px; height: 18px;"></i>
-      </a>
+      <button class="floating-btn floating-pass open-trial-modal" title="Claim Free Pass">
+        <i data-lucide="zap"></i>
+        <span class="mobile-action-label">Free Pass</span>
+      </button>
     </div>
 
     <!-- Free Trial Pass Modal -->
