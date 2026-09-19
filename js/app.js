@@ -78,17 +78,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
-  // 4. Mobile Drawer Navigation
+  // 4. Mobile Drawer Navigation (Interactive Full-Screen Slide-Over)
   const mobileToggle = document.querySelector('.mobile-toggle');
   const mobileDrawer = document.querySelector('.mobile-nav-drawer');
+  const drawerCloseBtn = document.getElementById('drawer-close-btn');
+
+  function openDrawer() {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.add('open');
+    document.body.classList.add('nav-open');
+    if (mobileToggle) {
+      mobileToggle.setAttribute('aria-expanded', 'true');
+      mobileToggle.innerHTML = '<i data-lucide="x"></i>';
+      if (window.lucide) lucide.createIcons();
+    }
+  }
+
+  function closeDrawer() {
+    if (!mobileDrawer) return;
+    mobileDrawer.classList.remove('open');
+    document.body.classList.remove('nav-open');
+    if (mobileToggle) {
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      mobileToggle.innerHTML = '<i data-lucide="menu"></i>';
+      if (window.lucide) lucide.createIcons();
+    }
+  }
+
   if (mobileToggle && mobileDrawer) {
-    mobileToggle.addEventListener('click', () => {
-      mobileDrawer.classList.toggle('open');
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (mobileDrawer.classList.contains('open')) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
     });
 
-    mobileDrawer.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileDrawer.classList.remove('open');
+    if (drawerCloseBtn) {
+      drawerCloseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeDrawer();
+      });
+    }
+
+    mobileDrawer.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('click', () => {
+        closeDrawer();
       });
     });
 
@@ -97,7 +133,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (mobileDrawer.classList.contains('open') && 
           !mobileDrawer.contains(e.target) && 
           !mobileToggle.contains(e.target)) {
-        mobileDrawer.classList.remove('open');
+        closeDrawer();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
+        closeDrawer();
       }
     });
   }
@@ -479,12 +522,14 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         modal.classList.add('active');
+        document.body.classList.add('modal-open');
         document.body.style.overflow = 'hidden';
       });
     });
 
     const closeModal = () => {
       modal.classList.remove('active');
+      document.body.classList.remove('modal-open');
       document.body.style.overflow = '';
     };
 

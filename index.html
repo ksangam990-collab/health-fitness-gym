@@ -110,21 +110,50 @@
     </header>
 
     <!-- Mobile Navigation Drawer -->
-    <div class="mobile-nav-drawer">
-      <a href="#about" class="nav-link">Facility & Equipment</a>
-      <a href="#targeter" class="nav-link">Targeted Programs</a>
-      <a href="#transformation" class="nav-link">Transformation Results</a>
-      <a href="#bmi-tool" class="nav-link">Body Composition Assessment</a>
-      <a href="#schedule" class="nav-link">Timings & Crowd Radar</a>
-      <a href="#pricing" class="nav-link">Membership Plans</a>
-      <a href="#reviews" class="nav-link">Google Reviews (4.9★)</a>
-      <a href="#location" class="nav-link">Bagunhatu Location</a>
-      <a href="tel:08294096478" class="btn btn-call" style="margin-top: 0.75rem;">
-        <i data-lucide="phone"></i> Call 082940 96478
-      </a>
-      <a href="https://wa.me/918294096478?text=Hello%20Health%20Fitness%20Gym,%20I%20want%20to%20inquire%20about%20membership" target="_blank" class="btn btn-whatsapp">
-        <i data-lucide="message-circle"></i> Chat on WhatsApp
-      </a>
+    <div class="mobile-nav-drawer" id="mobile-drawer">
+      <div class="drawer-header">
+        <div class="drawer-brand">
+          <div class="brand-icon" style="width: 32px; height: 32px;">
+            <i data-lucide="dumbbell"></i>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name" style="font-size: 1rem;">HEALTH FITNESS</span>
+            <span class="brand-sub" style="font-size: 0.68rem;">हेल्थ फिटनेस जिम • 4.9★</span>
+          </div>
+        </div>
+        <button class="drawer-close" id="drawer-close-btn" aria-label="Close Navigation">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="drawer-links">
+        <a href="#hero" class="drawer-link"><i data-lucide="home"></i> <span>Home</span></a>
+        <a href="#about" class="drawer-link"><i data-lucide="dumbbell"></i> <span>Facility & Equipment</span></a>
+        <a href="#targeter" class="drawer-link"><i data-lucide="crosshair"></i> <span>Targeted Programs</span></a>
+        <a href="#transformation" class="drawer-link"><i data-lucide="sparkles"></i> <span>90-Day Results</span></a>
+        <a href="#bmi-tool" class="drawer-link"><i data-lucide="calculator"></i> <span>Fitness Assessment</span></a>
+        <a href="#schedule" class="drawer-link"><i data-lucide="clock"></i> <span>Timings & Crowd Radar</span></a>
+        <a href="#pricing" class="drawer-link"><i data-lucide="tag"></i> <span>Membership Plans</span></a>
+        <a href="#reviews" class="drawer-link"><i data-lucide="star"></i> <span>Google Reviews (4.9★)</span></a>
+        <a href="#location" class="drawer-link"><i data-lucide="map-pin"></i> <span>Bagunhatu Location</span></a>
+      </div>
+
+      <div class="drawer-footer">
+        <button class="btn btn-primary open-trial-modal drawer-btn" style="width: 100%; height: 46px;">
+          <i data-lucide="zap"></i>
+          <span>Claim Free 1-Day Pass</span>
+        </button>
+        <div class="drawer-action-row">
+          <a href="tel:08294096478" class="btn btn-call drawer-btn" style="flex: 1; height: 44px; font-size: 0.82rem;">
+            <i data-lucide="phone"></i>
+            <span>Call Desk</span>
+          </a>
+          <a href="https://wa.me/918294096478?text=Hello%20Health%20Fitness%20Gym,%20I%20want%20to%20inquire%20about%20membership" target="_blank" class="btn btn-whatsapp drawer-btn" style="flex: 1; height: 44px; font-size: 0.82rem;">
+            <i data-lucide="message-circle"></i>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
     </div>
 
     <!-- Hero Section (Balanced & Proportional) -->
