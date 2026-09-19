@@ -45,7 +45,7 @@ git clone https://github.com/ksangam990-collab/health-fitness-gym.git
 cd health-fitness-gym
 
 # Start local preview server
-node server.js
+node local-server.js
 ```
 
 Open `http://localhost:5050` in your web browser.

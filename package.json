@@ -1,12 +1,10 @@
 {
   "name": "health-fitness-gym",
   "version": "1.0.0",
-  "description": "Health Fitness Gym (हेल्थ फिटनेस जिम) - Jamshedpur Official Website",
-  "main": "server.js",
+  "private": true,
+  "description": "Health Fitness Gym (हेल्थ फिटनेस जिम) - Official Website",
   "scripts": {
-    "start": "node server.js"
-  },
-  "keywords": ["gym", "fitness", "jamshedpur", "health-fitness-gym"],
-  "author": "Health Fitness Gym",
-  "license": "ISC"
+    "start": "node local-server.js",
+    "dev": "node local-server.js"
+  }
 }
