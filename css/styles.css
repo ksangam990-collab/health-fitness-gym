@@ -573,68 +573,92 @@ button, input, select, textarea {
 /* ==========================================================================
    Hero Rating Chip (Modern Single-Line Non-Wrapping Glass Pill)
    ========================================================================== */
-.hero-rating-chip {
+/* ==========================================================================
+   Hero Status Eyebrow Pill (Unified Location & Google Reviews Bar)
+   ========================================================================== */
+.hero-status-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.65rem;
   background: rgba(255, 255, 255, 0.035);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  padding: 0.32rem 0.85rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.95rem;
   width: fit-content;
   max-width: 100%;
   white-space: nowrap;
+}
+
+.status-location-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.status-location-tag svg {
+  width: 13px;
+  height: 13px;
+  color: var(--accent-primary);
+  flex-shrink: 0;
+}
+
+.status-pill-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.18);
+  flex-shrink: 0;
+}
+
+.status-rating-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   text-decoration: none;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s ease;
 }
 
-.hero-rating-chip:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(245, 158, 11, 0.4);
-  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  transform: translateY(-1px);
+.status-rating-tag:hover {
+  filter: brightness(1.15);
 }
 
-.chip-stars {
+.status-stars {
   display: inline-flex;
   align-items: center;
   gap: 2px;
   color: #f59e0b;
 }
 
-.chip-stars i, .chip-stars svg {
-  width: 12px;
-  height: 12px;
+.status-stars svg {
+  width: 11px;
+  height: 11px;
   fill: #f59e0b;
   stroke: none;
 }
 
-.chip-score {
+.status-score {
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 0.84rem;
+  font-size: 0.82rem;
   color: #ffffff;
 }
 
-.chip-sep {
-  color: rgba(255, 255, 255, 0.25);
-  font-size: 0.8rem;
-}
-
-.chip-reviews {
-  font-size: 0.74rem;
+.status-reviews {
+  font-size: 0.72rem;
   color: var(--text-muted);
 }
 
-.chip-badge {
+.status-badge-verified {
   display: inline-flex;
   align-items: center;
   gap: 3px;
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: var(--accent-primary);
   background: rgba(255, 42, 75, 0.12);
@@ -643,46 +667,19 @@ button, input, select, textarea {
   border: 1px solid rgba(255, 42, 75, 0.25);
 }
 
-.chip-badge svg {
-  width: 10px;
-  height: 10px;
-}
-
-/* Location & Hindi Tag Chip */
-.hero-location-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  margin-bottom: 0.65rem;
-}
-
-.hero-location-chip svg {
-  color: var(--accent-primary);
-  width: 13px;
-  height: 13px;
-  flex-shrink: 0;
-}
-
-.hero-location-chip .loc-sep {
-  color: rgba(255, 255, 255, 0.2);
-}
-
-.hero-location-chip .hindi-tag {
-  font-family: 'Noto Sans Devanagari', sans-serif;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 0.82rem;
+.status-badge-verified svg {
+  width: 9px;
+  height: 9px;
 }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 3.4vw, 2.85rem);
-  font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.15rem, 3.8vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.025em;
   color: var(--text-white);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
 .hero-title .glow-grad {
@@ -694,45 +691,47 @@ button, input, select, textarea {
 
 .hero-desc {
   font-size: 0.96rem;
-  color: var(--text-main);
-  margin-bottom: 1.25rem;
-  max-width: 480px;
-  line-height: 1.58;
+  color: var(--text-muted);
+  margin-bottom: 1.35rem;
+  max-width: 520px;
+  line-height: 1.6;
 }
 
 /* ==========================================================================
-   Hero Action Hub (Modern Athletic CTA + Dual Glass Quick-Connect Bar)
+   Hero Action Suite (Proportional Athletic Button + Inline Quick Actions)
    ========================================================================== */
-.hero-action-hub {
+.hero-action-suite {
   display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  margin-bottom: 1.15rem;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.85rem;
   width: 100%;
-  max-width: 480px;
 }
 
-/* Primary Hero Button: Luxury Athletic Bevel */
+/* Primary Hero Button: High-Energy Athletic CTA */
 .btn-hero-primary {
   position: relative;
   overflow: hidden;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0.85rem 1.25rem;
+  justify-content: center;
+  gap: 0.65rem;
+  height: 48px;
+  padding: 0 1.5rem;
   background: linear-gradient(135deg, #ff2a4b 0%, #ff5238 60%, #ff6b3d 100%);
   color: #ffffff;
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: 0.01em;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 14px;
+  border-radius: 12px;
   cursor: pointer;
   box-shadow: 0 8px 24px -4px rgba(255, 42, 75, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.35);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .btn-hero-primary:hover {
@@ -748,42 +747,33 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 9px;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
   background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
   flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn-hero-primary .btn-icon-pulse svg {
-  width: 17px;
-  height: 17px;
+  width: 14px;
+  height: 14px;
   color: #ffffff;
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
-}
-
-.btn-hero-primary .btn-title {
-  flex: 1;
-  text-align: center;
-  padding: 0 0.5rem;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6));
 }
 
 .btn-hero-primary .btn-arrow {
-  width: 18px;
-  height: 18px;
-  color: rgba(255, 255, 255, 0.8);
+  width: 16px;
+  height: 16px;
+  color: rgba(255, 255, 255, 0.85);
   transition: transform 0.25s ease;
   flex-shrink: 0;
 }
 
 .btn-hero-primary:hover .btn-arrow {
-  transform: translateX(4px);
+  transform: translateX(3px);
   color: #ffffff;
 }
 
-/* Metallic Light Shine Effect across Primary Button */
 .btn-hero-primary .btn-shine {
   position: absolute;
   top: 0;
@@ -810,145 +800,138 @@ button, input, select, textarea {
   }
 }
 
-/* Dual Frosted Glass Quick-Connect Bar */
-.hero-quick-connect {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.65rem;
-  width: 100%;
-}
-
-.quick-connect-card {
+/* Secondary Quick-Actions (Inline Buttons on Desktop) */
+.hero-secondary-actions {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.65rem 0.85rem;
-  background: rgba(16, 18, 26, 0.75);
+  gap: 0.65rem;
+}
+
+.hero-sub-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 48px;
+  padding: 0 1.15rem;
+  border-radius: 12px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid var(--border-glass);
-  border-radius: 13px;
-  text-decoration: none;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  min-width: 0;
+  white-space: nowrap;
 }
 
-.quick-connect-card:hover {
+.wa-sub-btn {
+  background: rgba(37, 211, 102, 0.08);
+  color: #25d366;
+  border: 1px solid rgba(37, 211, 102, 0.28);
+}
+
+.wa-sub-btn:hover {
+  background: rgba(37, 211, 102, 0.16);
+  border-color: rgba(37, 211, 102, 0.55);
+  color: #25d366;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.2);
 }
 
-.quick-connect-card:active {
-  transform: scale(0.98);
+.wa-sub-btn svg {
+  width: 17px;
+  height: 17px;
 }
 
-.quick-connect-card.wa-connect:hover {
-  border-color: rgba(16, 185, 129, 0.4);
-  box-shadow: 0 8px 22px rgba(16, 185, 129, 0.15);
+.call-sub-btn {
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.quick-connect-card.call-connect:hover {
+.call-sub-btn:hover {
+  background: rgba(255, 42, 75, 0.12);
   border-color: rgba(255, 42, 75, 0.4);
-  box-shadow: 0 8px 22px rgba(255, 42, 75, 0.15);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 42, 75, 0.2);
 }
 
-.quick-icon-badge {
+.call-sub-btn svg {
+  width: 16px;
+  height: 16px;
+  color: var(--accent-primary);
+}
+
+/* Micro Trust Line */
+.hero-trust-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
-  flex-shrink: 0;
-  transition: transform 0.2s ease;
-}
-
-.quick-connect-card:hover .quick-icon-badge {
-  transform: scale(1.08);
-}
-
-.quick-icon-badge.wa-badge {
-  background: rgba(16, 185, 129, 0.14);
-  color: #10b981;
-  border: 1px solid rgba(16, 185, 129, 0.3);
-}
-
-.quick-icon-badge.wa-badge svg {
-  width: 17px;
-  height: 17px;
-}
-
-.quick-icon-badge.call-badge {
-  background: rgba(255, 42, 75, 0.14);
-  color: var(--accent-primary);
-  border: 1px solid rgba(255, 42, 75, 0.3);
-}
-
-.quick-icon-badge.call-badge svg {
-  width: 17px;
-  height: 17px;
-}
-
-.quick-content {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-}
-
-.quick-title {
-  font-family: var(--font-display);
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.2;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.quick-sub {
-  font-size: 0.67rem;
+  gap: 0.65rem;
+  font-size: 0.76rem;
   color: var(--text-muted);
-  line-height: 1.2;
-  margin-top: 2px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin-bottom: 1.15rem;
 }
+
+.hero-trust-bar .trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.hero-trust-bar .trust-item svg {
+  width: 13px;
+  height: 13px;
+  color: var(--accent-live);
+}
+
+.hero-trust-bar .trust-sep {
   color: rgba(255, 255, 255, 0.2);
 }
 
-.hero-stats-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+/* Refined Horizontal Stats Deck */
+.hero-stats-deck {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 0.75rem;
   padding-top: 1.1rem;
   border-top: 1px solid var(--border-subtle);
+  max-width: 520px;
+  width: 100%;
 }
 
-.hero-stat-box {
+.stat-deck-card {
   display: flex;
   flex-direction: column;
 }
 
-.stat-number {
+.stat-deck-val {
   font-family: var(--font-mono);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text-white);
+  color: #ffffff;
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
 }
 
-.stat-number span:last-child {
+.stat-deck-val .stat-symbol {
   color: var(--accent-primary);
 }
 
-.stat-caption {
+.stat-deck-lbl {
   font-size: 0.72rem;
   color: var(--text-muted);
-  margin-top: 0.15rem;
+  margin-top: 0.2rem;
+  font-weight: 500;
+}
+
+.stat-deck-divider {
+  width: 1px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
 }
 
 /* Right Hero Visual Card */
@@ -1096,26 +1079,25 @@ button, input, select, textarea {
 
   .badge-aside-station {
     position: absolute;
-    left: -2.2rem;
-    top: 42%;
-    transform: translateY(-50%);
+    left: -1.5rem;
+    top: -1.2rem;
     animation: badgeFloatLeft 5s ease-in-out infinite;
   }
 
   .badge-aside-community {
     position: absolute;
-    right: -1rem;
-    bottom: -1rem;
+    right: -1.5rem;
+    bottom: -0.75rem;
     animation: badgeFloatRight 6s ease-in-out infinite;
   }
 }
 
 @keyframes badgeFloatLeft {
   0%, 100% {
-    transform: translateY(-50%);
+    transform: translateY(0);
   }
   50% {
-    transform: translateY(calc(-50% - 8px));
+    transform: translateY(-6px);
   }
 }
 
@@ -1124,7 +1106,7 @@ button, input, select, textarea {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-7px);
+    transform: translateY(-6px);
   }
 }
 
@@ -2330,11 +2312,11 @@ button, input, select, textarea {
    Floating Quick Action Buttons (Desktop Base)
    ========================================================================== */
 .floating-actions {
+  display: none !important;
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
   z-index: 999;
-  display: flex;
   flex-direction: column;
   gap: 0.55rem;
   transition: opacity 0.25s ease, transform 0.25s ease;
@@ -2797,6 +2779,7 @@ body.modal-open .floating-actions {
 
   /* Docked Mobile Bottom Action Bar */
   .floating-actions {
+    display: flex !important;
     bottom: 0;
     left: 0;
     right: 0;
@@ -2917,34 +2900,41 @@ body.modal-open .floating-actions {
     font-size: 0.9rem;
   }
 
-  /* ── Rating chip: sleek single-line on mobile ───────────────────────── */
-  .hero-rating-chip {
-    padding: 0.26rem 0.75rem;
-    gap: 0.4rem;
-    margin-bottom: 0.55rem;
+  /* ── Status pill: sleek single-line on mobile ───────────────────────── */
+  .hero-status-pill {
+    padding: 0.28rem 0.72rem;
+    gap: 0.45rem;
+    margin-bottom: 0.75rem;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
 
-  .chip-stars i, .chip-stars svg {
-    width: 11px;
-    height: 11px;
+  .hero-status-pill::-webkit-scrollbar {
+    display: none;
   }
 
-  .chip-score {
-    font-size: 0.78rem;
+  .status-location-tag {
+    font-size: 0.72rem;
   }
 
-  .chip-reviews {
-    font-size: 0.7rem;
+  .status-stars svg {
+    width: 10px;
+    height: 10px;
   }
 
-  .chip-badge {
-    font-size: 0.65rem;
-    padding: 0.1rem 0.4rem;
+  .status-score {
+    font-size: 0.76rem;
   }
 
-  .hero-location-chip {
-    font-size: 0.75rem;
-    margin-bottom: 0.55rem;
+  .status-reviews {
+    font-size: 0.68rem;
+  }
+
+  .status-badge-verified {
+    font-size: 0.62rem;
+    padding: 0.1rem 0.35rem;
   }
 
   .hero {
@@ -2954,51 +2944,73 @@ body.modal-open .floating-actions {
   }
   
   .hero-title {
-    font-size: clamp(1.85rem, 7.2vw, 2.35rem);
-    line-height: 1.18;
+    font-size: clamp(1.9rem, 7.5vw, 2.45rem);
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
   }
 
   .hero-desc {
     font-size: 0.92rem;
-    margin-bottom: 0.95rem;
-    line-height: 1.52;
+    margin-bottom: 1rem;
+    line-height: 1.54;
   }
   
-  .hero-action-hub {
+  .hero-action-suite {
+    flex-direction: column;
     gap: 0.55rem;
-    margin-bottom: 0.95rem;
+    margin-bottom: 0.85rem;
     width: 100%;
   }
 
   .btn-hero-primary {
-    padding: 0.8rem 1rem;
+    width: 100%;
+    height: 48px;
+    padding: 0 1.15rem;
     font-size: 0.9rem;
-    border-radius: 13px;
-  }
-
-  .quick-connect-card {
-    padding: 0.6rem 0.75rem;
-    gap: 0.6rem;
     border-radius: 12px;
   }
 
-  .quick-icon-badge {
-    width: 32px;
-    height: 32px;
+  .hero-secondary-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+    width: 100%;
   }
 
-  .quick-title {
-    font-size: 0.78rem;
+  .hero-sub-btn {
+    width: 100%;
+    justify-content: center;
+    height: 44px;
+    padding: 0 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 11px;
   }
 
-  .quick-sub {
-    font-size: 0.65rem;
+  .hero-sub-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .hero-trust-bar {
+    flex-wrap: wrap;
+    gap: 0.35rem 0.65rem;
+    font-size: 0.72rem;
+    margin-bottom: 1rem;
   }
   
-  .hero-stats-row {
+  .hero-stats-deck {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
+    gap: 0.85rem;
     padding-top: 0.85rem;
+  }
+
+  .stat-deck-divider {
+    display: none;
+  }
+
+  .stat-deck-val {
+    font-size: 1.35rem;
   }
 
   .footer-grid {
