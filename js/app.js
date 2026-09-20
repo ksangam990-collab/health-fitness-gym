@@ -82,11 +82,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileToggle = document.querySelector('.mobile-toggle');
   const mobileDrawer = document.querySelector('.mobile-nav-drawer');
   const drawerCloseBtn = document.getElementById('drawer-close-btn');
+  const drawerBackdrop = document.getElementById('drawer-backdrop');
 
   function openDrawer() {
     if (!mobileDrawer) return;
     mobileDrawer.classList.add('open');
     document.body.classList.add('nav-open');
+    if (drawerBackdrop) drawerBackdrop.classList.add('active');
     if (mobileToggle) {
       mobileToggle.setAttribute('aria-expanded', 'true');
       mobileToggle.innerHTML = '<i data-lucide="x"></i>';
@@ -98,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!mobileDrawer) return;
     mobileDrawer.classList.remove('open');
     document.body.classList.remove('nav-open');
+    if (drawerBackdrop) drawerBackdrop.classList.remove('active');
     if (mobileToggle) {
       mobileToggle.setAttribute('aria-expanded', 'false');
       mobileToggle.innerHTML = '<i data-lucide="menu"></i>';
@@ -127,6 +130,11 @@ document.addEventListener('DOMContentLoaded', () => {
         closeDrawer();
       });
     });
+
+    // Close on backdrop click
+    if (drawerBackdrop) {
+      drawerBackdrop.addEventListener('click', closeDrawer);
+    }
 
     // Close on click outside
     document.addEventListener('click', (e) => {
@@ -168,7 +176,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentTimeInMinutes = currentHour * 60 + currentMin;
 
     const openTime = 6 * 60;   // 6:00 AM
-    const closeTime = 22 * 60; // 10:00 PM
+
+    // Sunday closes at 1 PM (13:00), other days at 10 PM (22:00)
+    const dayOfWeek = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', weekday: 'short' });
+    const isSunday = dayOfWeek === 'Sun';
+    const closeTime = isSunday ? 13 * 60 : 22 * 60;
+    const closesLabel = isSunday ? '1 PM' : '10 PM';
 
     const isOpen = currentTimeInMinutes >= openTime && currentTimeInMinutes < closeTime;
 
@@ -184,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (statusPill) {
       if (isOpen) {
-        statusPill.innerHTML = `<span class="pulse-dot"></span><span>OPEN NOW · Closes 10 PM</span>`;
+        statusPill.innerHTML = `<span class="pulse-dot"></span><span>OPEN NOW · Closes ${closesLabel}</span>`;
         statusPill.style.color = '#10b981';
       } else {
         statusPill.innerHTML = `<span class="pulse-dot" style="background:#f59e0b; box-shadow:0 0 8px #f59e0b;"></span><span>CLOSED · Opens 6 AM</span>`;
@@ -204,7 +217,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   updateLiveStatus();
-  setInterval(updateLiveStatus, 30000);
+  setInterval(updateLiveStatus, 10000); // Update every 10 seconds for accuracy
 
   // 6. Interactive Muscle Group & Workout Targeter
   const muscleData = {
