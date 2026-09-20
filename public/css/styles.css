@@ -1154,6 +1154,8 @@ button, input, select, textarea {
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .muscle-gear-tags {
@@ -1187,6 +1189,8 @@ button, input, select, textarea {
   justify-content: space-between;
   align-items: center;
   font-size: 0.88rem;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .muscle-meta-row .meta-label {
@@ -1194,6 +1198,7 @@ button, input, select, textarea {
   align-items: center;
   gap: 0.45rem;
   color: var(--text-muted);
+  flex-shrink: 0;
 }
 
 .muscle-meta-row .meta-label svg {
@@ -1206,6 +1211,8 @@ button, input, select, textarea {
   font-family: var(--font-mono);
   font-weight: 700;
   color: var(--text-white);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 .technique-callout-card {
@@ -1345,6 +1352,8 @@ button, input, select, textarea {
   display: flex;
   flex-direction: column;
   gap: 1.35rem;
+  overflow: hidden;
+  min-width: 0;
 }
 
 .input-group {
@@ -1357,12 +1366,15 @@ button, input, select, textarea {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
 }
 
 .input-label {
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--text-white);
+  flex-shrink: 0;
 }
 
 .input-val-badge {
@@ -1373,6 +1385,11 @@ button, input, select, textarea {
   background: rgba(255, 42, 75, 0.08);
   padding: 0.18rem 0.65rem;
   border-radius: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60%;
+  text-align: right;
 }
 
 .bmi-inputs-row {
@@ -1424,14 +1441,15 @@ button, input, select, textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
 }
 
 .bmi-gauge-wrapper {
   position: relative;
-  width: 200px;
-  height: 110px;
+  width: 100%;
+  max-width: 240px;
+  height: 130px;
   margin-bottom: 0.75rem;
 }
 
@@ -2404,6 +2422,13 @@ body.modal-open .floating-actions {
 }
 
 @media (max-width: 880px) {
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 1.85rem;
@@ -2419,8 +2444,8 @@ body.modal-open .floating-actions {
   }
   
   .hero-image-wrapper {
-    height: 340px;
-    border-radius: 18px;
+    height: 300px;
+    border-radius: 16px;
   }
 
   /* Badges Moved Aside Below the Image on Mobile (100% Unobstructed Athlete) */
@@ -2450,6 +2475,20 @@ body.modal-open .floating-actions {
   .muscle-targeter-grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
+  }
+
+  /* Fix: prevent justify-content:space-between creating dead space on mobile */
+  .muscle-detail-display {
+    justify-content: flex-start;
+    gap: 1.25rem;
+    overflow: hidden;
+  }
+
+  /* Fix: ensure description text wraps properly without clipping */
+  #target-muscle-desc {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
   }
 
   .muscle-nav-list {
@@ -2493,6 +2532,7 @@ body.modal-open .floating-actions {
   
   .bmi-tool-grid {
     grid-template-columns: 1fr;
+    align-items: start; /* prevent result card from stretching to form height */
   }
   
   .timing-grid {
@@ -2638,6 +2678,11 @@ body.modal-open .floating-actions {
     padding: 0 1rem;
   }
 
+  /* ── CRITICAL: Reduce section padding on mobile ────────────────────────── */
+  .section {
+    padding: 2.75rem 0;
+  }
+
   .header-actions .status-pill {
     display: none;
   }
@@ -2654,6 +2699,43 @@ body.modal-open .floating-actions {
     width: 38px;
     height: 38px;
     flex-shrink: 0;
+  }
+
+  /* ── Section header: tighter on mobile ─────────────────────────────────── */
+  .section-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.55rem, 6.5vw, 1.9rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* ── Rating badge: compact single-line on mobile ───────────────────────── */
+  .rating-badge-top {
+    padding: 0.22rem 0.65rem;
+    gap: 0.35rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .rating-badge-top .stars i {
+    width: 11px !important;
+    height: 11px !important;
+  }
+
+  .rating-score {
+    font-size: 0.76rem;
+  }
+
+  .rating-count {
+    font-size: 0.7rem;
+  }
+
+  .rating-badge-top a {
+    font-size: 0.7rem;
   }
 
   .hero {
@@ -2686,19 +2768,19 @@ body.modal-open .floating-actions {
   }
 
   .hero-reception-line {
-    font-size: 0.75rem;
-    width: fit-content;
+    font-size: 0.73rem;
+    width: 100%;
     max-width: 100%;
-    margin: 0 auto 0.95rem;
+    margin: 0 0 0.95rem 0;
     justify-content: center;
-    padding: 0.35rem 0.85rem;
-    gap: 0.35rem 0.65rem;
-    display: inline-flex;
+    padding: 0.4rem 1rem;
+    gap: 0.3rem 0.55rem;
+    display: flex;
     flex-wrap: wrap;
   }
 
   .reception-pill-item {
-    font-size: 0.75rem;
+    font-size: 0.73rem;
   }
   
   .hero-stats-row {
@@ -2738,6 +2820,18 @@ body.modal-open .floating-actions {
 @media (max-width: 414px) {
   .nav-container {
     padding: 0 0.75rem;
+  }
+
+  /* Tighter container padding on small phones */
+  .container {
+    padding: 0 1rem;
+  }
+
+  /* Tighter card padding on small phones */
+  .bmi-form,
+  .bmi-result-card,
+  .muscle-detail-display {
+    padding: 1.25rem;
   }
 
   .brand-name {

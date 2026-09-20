@@ -389,8 +389,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const feet = Math.floor(height / 30.48);
     const inches = Math.round((height % 30.48) / 2.54);
-    if (heightValDisplay) heightValDisplay.textContent = `${height} cm (${feet}'${inches}")`;
-    if (weightValDisplay) weightValDisplay.textContent = `${weight} kg (${(weight * 2.20462).toFixed(1)} lbs)`;
+    const isMobile = window.innerWidth <= 640;
+    if (heightValDisplay) heightValDisplay.textContent = isMobile
+      ? `${height} cm`
+      : `${height} cm (${feet}'${inches}")`;
+    if (weightValDisplay) weightValDisplay.textContent = isMobile
+      ? `${weight} kg`
+      : `${weight} kg (${(weight * 2.20462).toFixed(1)} lbs)`;
 
     const heightInMeters = height / 100;
     const bmi = weight / (heightInMeters * heightInMeters);
