@@ -5,10 +5,15 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Initialize Lucide Icons
-  if (window.lucide) {
-    lucide.createIcons();
+  // 1. Initialize Lucide Icons safely (resilient to script deferring)
+  function initIcons() {
+    if (window.lucide && typeof lucide.createIcons === 'function') {
+      lucide.createIcons();
+    } else {
+      setTimeout(initIcons, 50);
+    }
   }
+  initIcons();
 
   // 2. Hardware-Accelerated Scroll Reveal Engine
   const revealElements = document.querySelectorAll('.reveal');
@@ -68,13 +73,14 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(update);
   }
 
-  // 3. Sticky Glass Header
+  // 3. Sticky Glass Header (State-checked to prevent layout thrashing)
   const header = document.querySelector('.header');
+  let headerScrolled = false;
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    const shouldScroll = window.scrollY > 40;
+    if (shouldScroll !== headerScrolled) {
+      headerScrolled = shouldScroll;
+      if (header) header.classList.toggle('scrolled', headerScrolled);
     }
   }, { passive: true });
 
