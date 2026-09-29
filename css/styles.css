@@ -2318,6 +2318,107 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
+   Developer Signature & Credit Badge (Crafted for Sangam Kumar)
+   ========================================================================== */
+.developer-credit-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.dev-prefix {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--text-subtle);
+  letter-spacing: 0.01em;
+}
+
+.dev-author-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.22rem 0.65rem 0.22rem 0.32rem;
+  border-radius: 999px;
+  color: var(--text-white);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: all 0.25s var(--ease-smooth);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.dev-author-tag:hover {
+  background: rgba(255, 42, 75, 0.12);
+  border-color: rgba(255, 42, 75, 0.45);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(255, 42, 75, 0.25);
+}
+
+.dev-author-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--grad-accent);
+  color: #ffffff;
+  font-size: 0.62rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 0 8px rgba(255, 42, 75, 0.4);
+}
+
+.dev-author-name {
+  color: var(--text-white);
+  transition: color 0.2s ease;
+}
+
+.dev-link-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--text-subtle);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.dev-author-tag:hover .dev-link-icon {
+  color: var(--accent-primary);
+  transform: translate(1px, -1px);
+}
+
+.drawer-credit {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--text-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.drawer-credit-link {
+  color: var(--text-main);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.drawer-credit-link:hover {
+  color: var(--accent-primary);
+}
+
+/* ==========================================================================
    Floating Quick Action Buttons (Desktop Base)
    ========================================================================== */
 .floating-actions {
@@ -3090,6 +3191,12 @@ body.modal-open .floating-actions {
     flex-direction: column;
     text-align: center;
     gap: 0.85rem;
+  }
+
+  .developer-credit-pill {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.35rem 0.5rem;
   }
 
   .footer-badges {
